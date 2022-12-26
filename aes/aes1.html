@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://torear797.github.io/PWA/?page=AES -->
+<html class="mdl-js" lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#FFFFFF">
+
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#FFFFFF">
+
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF">
+
+    <!--Общие скрипты-->
+    <script src="./AES _ Шифрование онлайн_files/main.min.js.загружено" type="text/javascript"></script>
+<!--    <script src="public/js/commonScripts.js" type="text/javascript"></script>-->
+
+    <!--    Для индексации-->
+    <meta name="audience" lang="ru" content="all">
+    <title>AES</title>
+    <meta id="keywords" name="keywords" content="Advanced Encryption Standard, AES, Rijndael, криптография, Кодирование, Декодирование">
+    <meta id="description" name="description" content="Данная страница позволяет использовать алгоритм шифрования AES для кодирования своих файлов и текстов онлайн">
+    <meta name="author" content="Torear">
+
+    <!--    og разметка-->
+    <meta id="og_title" property="og:title" content="AES">
+    <meta id="og_description" property="og:description" content="Данная страница позволяет использовать алгоритм шифрования AES для кодирования своих файлов и текстов онлайн">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://torear797.github.io/PWA/">
+    <meta property="og:image" content="mainimg.png">
+    <meta property="og:site_name" content="Сайт для быстрого шифрования текста и файлов популярными алгоритмами, такими как AES и RSA.">
+
+    <!--    Подключение PWA-->
+    <link rel="manifest" href="https://torear797.github.io/PWA/manifest.json">
+    <script type="module">
+        import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+        const el = document.createElement('pwa-update');
+        document.body.appendChild(el);
+    </script>
+
+    <link rel="apple-touch-icon" href="https://torear797.github.io/PWA/public/img/pwa_icons/180x180.png">
+    <link rel="icon" href="mainimg.png" type="image/x-icon">
+
+    <!--Подключение библиотеки Material-->
+    <!--    <link rel="stylesheet" href="public/css/material.indigo-deep_purple.min.css" type="text/css">-->
+
+    <script defer="" src="./AES _ Шифрование онлайн_files/material.min.js.загружено" type="text/javascript" id="material"></script>
+
+    <!--Подключение AES-->
+    <script async="" src="./AES _ Шифрование онлайн_files/aes.js.загружено" type="text/javascript"></script>
+
+    <!--Подключение DragAndDrop Zone-->
+    
+    <link rel="stylesheet" href="./AES _ Шифрование онлайн_files/DragAndDropCSS.css" type="text/css">
+
+    <script async="" src="./AES _ Шифрование онлайн_files/jsencrypt.min.js.загружено" type="text/javascript"></script>
+
+    <!-- QR -->
+    <script async="" src="./AES _ Шифрование онлайн_files/qr.js.загружено"></script>
+
+    <!--Подключение SHA-->
+    <script defer="" src="./AES _ Шифрование онлайн_files/core-min.js.загружено" type="text/javascript"></script>
+    <script defer="" src="./AES _ Шифрование онлайн_files/x64-core-min.js.загружено" type="text/javascript"></script>
+
+    <script defer="" src="./AES _ Шифрование онлайн_files/sha512.js.загружено" type="text/javascript"></script>
+    <script defer="" src="./AES _ Шифрование онлайн_files/sha256.js.загружено" type="text/javascript"></script>
+    <script defer="" src="./AES _ Шифрование онлайн_files/sha224.js.загружено" type="text/javascript"></script>
+    <script defer="" src="./AES _ Шифрование онлайн_files/sha384.js.загружено" type="text/javascript"></script>
+    <script defer="" src="./AES _ Шифрование онлайн_files/sha3.js.загружено" type="text/javascript"></script>
+
+    <!-- -->
+    <script async="" src="./AES _ Шифрование онлайн_files/client.min.js.загружено"></script>
+
+    <link rel="stylesheet" href="./AES _ Шифрование онлайн_files/classic.min.css" type="text/css">
+
+    <!--material css-->
+    <style>
+        ::-webkit-scrollbar {
+  width: 15px;
+  padding: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #212529;
+}
+::-webkit-scrollbar-thumb {
+  border: 4px solid #212529;
+  border-radius: 10px;
+  background: rgb(64, 64, 64);
+}
+body{
+    height: 1000px; 
+    width: 100%; 
+}
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #dfe4e4;
+    background: linear-gradient(149deg, rgb(18, 18, 19) 0%, rgb(33, 33, 33) 42%, rgb(64, 64, 64) 72%, rgb(171, 171, 171) 100%);
+    animation: gradient 10s infinite linear; 
+    background-size: 400%; 
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 80% 0%;
+    }
+    50% {
+        background-position: 20% 100%;
+    }
+    100% {
+        background-position: 80% 0%;
+    }
+}
+  .blocks {
+    width: 500px;
+    padding: 2% 5%;
+    margin-left: 30%;
+    border: 2px;
+    border-radius: 10px;
+    background-color: #151515;
+  }
+  button{
+    align-self: flex-start;
+    background-color: #2d2d2d;
+    border:0;
+    border-radius: 5px;
+    color: #dfe4e4;
+    width: 120px;
+    height: 70px;
+  }
+  a{
+    text-decoration: none;
+    color: #dfe4e4;
+  }
+  input{
+    color: #dfe4e4;
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid  #fa448c;
+    background: none;
+  }
+  .output{
+    color: #dfe4e4;
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid  #fa448c;
+    background: none;
+  }
+  /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #fa448c;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #fa448c;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+       </style>
+<script src="./AES _ Шифрование онлайн_files/DragAndDropScript.js.загружено" id="DragAndDropScript"></script></head>
+
+<body>
+    <h1 style="margin-left: 46%;">Шифр AES </h1>
+<div class="mdl-layout__container"><div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer is-upgraded" data-upgraded=",MaterialLayout">
+    
+    
+
+    <div class="mdl-layout__content background-Grey" id="content"><div class="mdl-grid content">
+
+    <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--4dp">
+        <div class="blocks">
+            
+            
+                <h2>Введите слово</h2>
+                <input class="inputtext" type="text" rows="5" id="InputText" onkeyup="setCharCounter()"></input>
+                <label id="LabelText" class="mdl-textfield__label" for="InputText">Текст (64)</label>
+            
+
+                <h2>Введите ключ</h2>
+                <input class="inputtext" type="text" id="password" onkeyup="setCharCounter(&#39;password&#39;, &#39;password_label&#39;, &#39;Пароль&#39;)">
+                <label class="mdl-textfield__label" for="password" id="password_label">Пароль (16)</label>
+            
+
+                <h2>Результат</h2>
+                <input class="inputtext" type="text" rows="5" id="CryptText" onkeyup="setCharCounter(&#39;CryptText&#39;, &#39;CryptLabel&#39;, &#39;Результат&#39;)"></input>
+                <label id="CryptLabel" class="mdl-textfield__label" for="CryptText">Результат (0)</label>
+            
+
+                <h1></h1>
+                <button><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="ClickAES(0); return false;" data-upgraded=",MaterialButton,MaterialRipple">Кодировать<span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 264.084px; height: 264.084px; transform: translate(-50%, -50%) translate(71px, 18px);"></span></span></a></button>
+                <button><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="ClickAES(1); return false;" data-upgraded=",MaterialButton,MaterialRipple">Декодировать<span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 300.804px; height: 300.804px; transform: translate(-50%, -50%) translate(75px, 25px);"></span></span></a>   </button>
+
+                
+
+                
+
+             
+        </div>
+    </div>
+
+    
+
+    
+
+<script src="./AES _ Шифрование онлайн_files/pickr.es5.min.js.загружено"></script>
+
+
+<script>
+    const xhr = new XMLHttpRequest();
+    const page = $_GET("page");
+    const pages = ['base64Form', 'SHA', 'AES', 'RSA', 'mathFunc', 'mathSystems', 'timestamp', 'qr', 'userInfo', 'colorPicker', 'passwordGenerator', 'home'];
+
+    if (page) {
+        if (pages.includes(page)) {
+            ReplaceBlock(page, false);
+        } else {
+            ReplaceBlock("404", false);
+        }
+    } else {
+        const localPage = JSON.parse(localStorage.getItem("currentPage"));
+        if (localPage) {
+            ReplaceBlock(localPage, false);
+        } else {
+            ReplaceBlock("home", false);
+        }
+    }
+
+    function ReplaceBlock(id, isOpenMenu = true) {
+
+        if (!pages.includes(id)) {
+            id = '404';
+        }
+
+        xhr.open('GET', 'app/views/' + id + '.html', true);
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState !== 4) return;
+
+            if (xhr.status === 200 && document.getElementById("content").innerHTML !== xhr.response) {
+                document.getElementById("content").innerHTML = xhr.response
+
+                updatePage(id);
+
+                if (id === 'userInfo') {
+                    setUserInfo()
+                }
+
+                if (id === 'colorPicker') {
+                    const pickrContainer = document.querySelector('.palette-container');
+
+                    new Pickr({
+                        el: pickrContainer,
+                        container: 'main',
+                        theme: 'classic',
+                        default: '#F44336',
+                        useAsButton: false,
+                        showAlways: true,
+                        inline: true,
+                        position: 'bottom-middle',
+                        swatches: [
+                            'rgb(244, 67, 54)',
+                            'rgb(233, 30, 99)',
+                            'rgb(156, 39, 176)',
+                            'rgb(103, 58, 183)',
+                            'rgb(63, 81, 181)',
+                            'rgb(33, 150, 243)',
+                            'rgb(3, 169, 244)',
+                            'rgb(0, 188, 212)',
+                            'rgb(0, 150, 136)',
+                            'rgb(76, 175, 80)',
+                            'rgb(139, 195, 74)',
+                            'rgb(205, 220, 57)',
+                            'rgb(255, 235, 59)',
+                            'rgb(255, 193, 7)',
+                            'rgb(255, 152, 0)',
+                            'rgb(255, 152, 0)',
+                            'rgb(255, 87, 34)',
+                            'rgb(121, 85, 72)',
+                            'rgb(158, 158, 158)',
+                            'rgb(96, 125, 139)',
+                        ],
+
+                        components: {
+                            preview: false,
+                            opacity: true,
+                            hue: true,
+
+                            interaction: {
+                                hex: true,
+                                cmyk: true,
+                                rgba: true,
+                                hsla: true,
+                                hsva: true,
+                                input: true,
+                                clear: false,
+                                save: false
+                            }
+                        },
+                    });
+                }
+
+                document.getElementById("content").scrollTop = 0;
+            }
+        };
+
+        if (isOpenMenu) {
+            closeMenu();
+        }
+
+        localStorage.setItem("currentPage", JSON.stringify(id));
+    }
+
+</script>
+<pwa-update></pwa-update></body></html>
